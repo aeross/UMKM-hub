@@ -1,0 +1,28 @@
+:root {
+    /* variables go here */
+    --primary: black;
+}
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* example template for cards */
+
+.cards {
+    margin: 30px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 2px solid var(--primary);
+    text-align: center;
+}
+
+img {
+    width: 80%;
+}
