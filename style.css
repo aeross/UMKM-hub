@@ -1,8 +1,9 @@
 :root {
     /* variables go here */
-    --primary: rgb(222, 205, 197);
-    --secondary: rgb(161, 148, 142);
+    --primary: rgb(176, 24, 118);
+    --secondary: rgb(235, 99, 26);
     --tertiary: white;
+    --gradient: linear-gradient(var(--primary), var(--secondary), var(--tertiary));
 }
 
 *, *::before, *::after {
@@ -11,17 +12,64 @@
     box-sizing: border-box;
 }
 
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+/* sidebar */
+
+ul {
+    list-style-type: none;
+}
+
+.sidebar {
+    background-color: lightblue;
+    font-weight: bold;
+    padding: 15px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* sticks this sidebar in place when scrolling */
+    position: sticky;
+    top: 0;
+}
+
+.sidebar span.fa {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.sidebar ul a {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+
+/* form */
+
 form {
-    display: none;
+    /* display: none; */
+    
+}
+
+input {
+    border-radius: 15px;
+    height: 40px;
 }
 
 body {
-    background-color: var(--primary);
+    background-image: var(--gradient);
 }
+
+/* main */
 
 .cards {
     margin: 30px 40px;
-    display: grid;
+    display: none;
+    /* display: grid; */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }

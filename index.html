@@ -10,36 +10,66 @@
 </head>
 <body>
     <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-title">
+                <a href=""><h2><span class="fa fa-dashboard big"></span> Dashboard</h2></a>
+            </div>
+            <ul>
+                <li><a href="#"><span class="fa fa-home"></span><span>Home</span></a></li>
+                <li><a href="#"><span class="fa fa-user"></span><span>Profile</span></a></li>
+                <li><a href="#"><span class="fa fa-envelope"></span><span>Messages</span></a></li>
+                <li><a href="#"><span class="fa fa-history"></span><span>History</span></a></li>
+                <li><a href="#"><span class="fa fa-tasks"></span><span>Tasks</span></a></li>
+                <li><a href="#"><span class="fa fa-users"></span><span>Communities</span></a></li>
+            </ul>
+            <ul>
+                <li><a href="#"><span class="fa fa-question-circle"></span><span>Support</span></a></li>
+                <li><a href="#"><span class="fa fa-lock"></span><span>Privacy</span></a></li>
+                <li><a href="#"><span class="fa fa-info-circle"></span><span>About</span></a></li>
+            </ul>
+        </div>
+
         <form action="/action_page.php">
-            <label for="name">Company Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="address">Address:</label><br>
-            <input type="text" id="address" name="address"><br>
+            <h2>SIGN UP AS SUPPLIER</h2>
+            <label for="name">Nama UMKM/Perusahaan:</label>
+            <input type="text" id="name" name="name">
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br>
             <label for="contactName">Contact Person:</label><br>
             <input type="text" id="contactName" name="contactName"><br>
             <label for="telphone">Telphone:</label><br>
             <input type="text" id="telphone" name="telphone"><br>
-            <label for="tagline">Tagline:</label><br>
-            <input type="text" id="tagline" name="tagline"><br>
-            <label for="desc">Description:</label><br>
-            <input type="text" id="desc" name="desc"><br>
             <label for="MoQ">Minimal Order Quantity:</label><br>
             <input type="text" id="MoQ" name="MoQ"><br>
             <label for="priceRange">Price Range:</label><br>
             <input type="text" id="priceRange" name="priceRange"><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address"><br>
+            <label for="desc">Description:</label><br>
+            <input type="text" id="desc" name="desc"><br>
+            <label for="tagline">Tagline:</label><br>
+            <input type="text" id="tagline" name="tagline"><br>
             <label for="category">Category:</label><br>
             <select name="category" id="category">
-                <option value="makanan">Makanan</option>
-                <option value="daging">Daging</option>
-                <option value="perkebunan">Perkebunan</option>
+                <option value="Rempah">Rempah </option>
+                <option value="Kesenian">Kesenian</option>
+                <option value="Agrikultur">Agrikultur</option>
                 <option value="pertambangan">Pertambangan</option>
+                <option value="Tekstil">Tekstil/Garment</option>
+                <option value="Elektronik">Elektronik</option>
+                <option value="Pangan">Pangan</option>
             </select><br><br><br>
             <input type="submit" value="Submit">
         </form>
 
+        <header>
+            <ul>
+                <li>Saved list</li>
+                <li>main [age</li>
+            </ul>
+        </header>
         <main class="cards">
+
             <div class="card">
                 <span class="fa fa-star"></span>
                 <img src="images/dummy.jpg" alt="dummy image">
@@ -70,6 +100,7 @@
                     <p class="telp">dummy</p>
                     <p class="address">dummy</p>
                 </div>
+                <button>Contact Info</button>
             </div>
 
             <div class="card">
