@@ -3,6 +3,7 @@
     --primary: rgb(176, 24, 118);
     --secondary: rgb(235, 99, 26);
     --tertiary: white;
+    --quaternary: rgb(255, 114, 114);
     --gradient: linear-gradient(var(--primary), var(--secondary), var(--tertiary));
 }
 
@@ -22,7 +23,7 @@ body {
     background-image: var(--gradient);
 }
 
-h1, h2, h3, h4, h5, h6, p, a, label {
+h1, h2, h3, h4, h5, h6, a, label {
     color: var(--tertiary);
 }
 
@@ -33,7 +34,7 @@ ul {
 }
 
 .sidebar {
-    background-color: lightblue;
+    background-color: var(--quaternary);
     font-weight: bold;
     padding: 15px;
     height: 100vh;
@@ -57,7 +58,6 @@ ul {
 
 a {
     text-decoration: none;
-    color: black;
 }
 
 /* form */
@@ -88,18 +88,29 @@ input {
     /* display: none; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 40px;
 }
 
 .card {
-    border: 2px solid black;
+    position: relative;
+    /* border: 2px solid black; */
+    box-shadow: 2px 2px 4px -1px black;
     background-color: var(--tertiary);
     text-align: center;
     border-radius: 30px;
 }
 
+.card span.fa {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+}
+
 img {
-    width: 80%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 28px 28px 0px 0px;
 }
 
 .text {
