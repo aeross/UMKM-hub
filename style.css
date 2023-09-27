@@ -1,10 +1,10 @@
 :root {
     /* variables go here */
-    --primary: rgb(176, 24, 118);
+    --primary: rgb(252, 233, 135);
     --secondary: rgb(235, 99, 26);
-    --tertiary: white;
-    --quaternary: rgb(255, 114, 114);
-    --gradient: linear-gradient(var(--primary), var(--secondary), var(--tertiary));
+    --tertiary: rgb(125, 0, 0);
+    --dark-colour: rgb(241, 241, 241);
+    --light-colour: white;
 }
 
 *, *::before, *::after {
@@ -20,14 +20,6 @@
     grid-template-columns: 1fr 4fr;
 }
 
-body {
-    background-image: var(--gradient);
-}
-
-h1, h2, h3, h4, h5, h6, a, label {
-    color: var(--tertiary);
-}
-
 /* sidebar */
 
 ul {
@@ -35,7 +27,7 @@ ul {
 }
 
 .sidebar {
-    background-color: var(--quaternary);
+    background-color: var(--primary);
     font-weight: bold;
     padding: 15px;
     height: 100vh;
@@ -59,6 +51,32 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+/* header */
+
+header {
+    padding: 15px 30px;
+    background-color: var(--dark-colour);
+    box-shadow: 2px 2px 4px -1px var(--dark-colour);
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header li {
+    font-weight: bolder;
+}
+
+header li:hover {
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+header li:active {
+    color: var(--tertiary);
 }
 
 /* form */

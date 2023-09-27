@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -18,154 +18,156 @@
                 <a href=""><h2>Dashboard</h2></a>
             </div>
             <ul>
-                <li><a href="#"><span>Home</span></a></li>
-                <li><a href="#"><span>Profile</span></a></li>
-                <li><a href="#"><span>Messages</span></a></li>
-                <li><a href="#"><span>History</span></a></li>
-                <li><a href="#"><span>Tasks</span></a></li>
-                <li><a href="#"><span>Communities</span></a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Tasks</a></li>
+                <li><a href="#">Communities</a></li>
             </ul>
             <ul>
-                <li><a href="#"><span class="fa fa-question-circle"></span><span>Support</span></a></li>
-                <li><a href="#"><span class="fa fa-lock"></span><span>Privacy</span></a></li>
-                <li><a href="#"><span class="fa fa-info-circle"></span><span>About</span></a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </div>
 
-        <form action="/action_page.php">
-            <h2>SIGN UP AS SUPPLIER</h2>
-            <section>
-                <label for="name">Nama UMKM/Perusahaan:</label>
-                <input type="text" id="name" name="name">
+        <div class="main">
+            <header>
+                <ul>
+                    <li>Saved List</li>
+                    <li>Back to Main Page</li>
+                </ul>
+            </header>
 
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email">
-
-                <label for="contactName">Contact Person:</label>
-                <input type="text" id="contactName" name="contactName">
-
-                <label for="telphone">Telphone:</label>
-                <input type="text" id="telphone" name="telphone">
-
-                <label for="MoQ">Minimal Order Quantity:</label>
-                <input type="text" id="MoQ" name="MoQ">
-
-                <label for="priceRange">Price Range:</label>
-                <input type="text" id="priceRange" name="priceRange">
-
-                <label for="desc">Description:</label>
-                <input type="text" id="desc" name="desc">
-
-                <label for="tagline">Tagline:</label>
-                <input type="text" id="tagline" name="tagline">
-
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address">
-            </section>
-
-            <label for="category">Category:</label>
-            <select name="category" id="category">
-            <option value="Rempah">Rempah </option>
-                <option value="Kesenian">Kesenian</option>
-                <option value="Agrikultur">Agrikultur</option>
-                <option value="pertambangan">Pertambangan</option>
-                <option value="Tekstil">Tekstil/Garment</option>
-                <option value="Elektronik">Elektronik</option>
-                <option value="Pangan">Pangan</option>
-            </select>
-
-            <input type="submit" value="Submit">
-        </form>
-
-        <header>
-            <ul>
-                <li>Saved list</li>
-                <li>main [age</li>
-            </ul>
-        </header>
-
-        <main class="cards">
-            <div class="card">
-                <span class="fa fa-star"></span>
-                <img src="images/dummy.jpg" alt="dummy image">
-                <div class="text">
-                    <h2 class="business-name">Meet Meat</h2>
-                    <h4 class="tagline">"Everything about Meat"</h4>
-                    <p class="category">meetmeat@gmail.com</p>
-                    <p class="price-range">Daging Supplier</p>
-                    <p class="MoQ"></p>
-                    <p class="product"></p>
-                    <p class="email"></p>
-                    <p class="telp"></p>
-                    <p class="address"></p>
+            <form action="/action_page.php">
+                <h2>SIGN UP AS SUPPLIER</h2>
+                <section>
+                    <label for="name">Nama UMKM/Perusahaan:</label>
+                    <input type="text" id="name" name="name">
+    
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+    
+                    <label for="contactName">Contact Person:</label>
+                    <input type="text" id="contactName" name="contactName">
+    
+                    <label for="telphone">Telphone:</label>
+                    <input type="text" id="telphone" name="telphone">
+    
+                    <label for="MoQ">Minimal Order Quantity:</label>
+                    <input type="text" id="MoQ" name="MoQ">
+    
+                    <label for="priceRange">Price Range:</label>
+                    <input type="text" id="priceRange" name="priceRange">
+    
+                    <label for="desc">Description:</label>
+                    <input type="text" id="desc" name="desc">
+    
+                    <label for="tagline">Tagline:</label>
+                    <input type="text" id="tagline" name="tagline">
+    
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address">
+                </section>
+    
+                <label for="category">Category:</label>
+                <select name="category" id="category">
+                <option value="Rempah">Rempah </option>
+                    <option value="Kesenian">Kesenian</option>
+                    <option value="Agrikultur">Agrikultur</option>
+                    <option value="pertambangan">Pertambangan</option>
+                    <option value="Tekstil">Tekstil/Garment</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Pangan">Pangan</option>
+                </select>
+    
+                <input type="submit" value="Submit">
+            </form>
+    
+            <main class="cards">
+                <div class="card">
+                    <span class="fa fa-star"></span>
+                    <img src="images/dummy.jpg" alt="dummy image">
+                    <div class="text">
+                        <h2 class="business-name">Meet Meat</h2>
+                        <h4 class="tagline">"Everything about Meat"</h4>
+                        <p class="category">meetmeat@gmail.com</p>
+                        <p class="price-range">Daging Supplier</p>
+                        <p class="MoQ"></p>
+                        <p class="product"></p>
+                        <p class="email"></p>
+                        <p class="telp"></p>
+                        <p class="address"></p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <span class="fa fa-star"></span>
-                <img src="images/dummy.jpg" alt="dummy image">
-                <div class="text">
-                    <h2 class="business-name">Meet Meat</h2>
-                    <h4 class="tagline">"Everything about Meat"</h4>
-                    <p class="category">meetmeat@gmail.com</p>
-                    <p class="price-range">Daging Supplier</p>
-                    <p class="MoQ">dummy</p>
-                    <p class="product">dummy</p>
-                    <p class="email">dummy</p>
-                    <p class="telp">dummy</p>
-                    <p class="address">dummy</p>
+    
+                <div class="card">
+                    <span class="fa fa-star"></span>
+                    <img src="images/dummy.jpg" alt="dummy image">
+                    <div class="text">
+                        <h2 class="business-name">Meet Meat</h2>
+                        <h4 class="tagline">"Everything about Meat"</h4>
+                        <p class="category">meetmeat@gmail.com</p>
+                        <p class="price-range">Daging Supplier</p>
+                        <p class="MoQ">dummy</p>
+                        <p class="product">dummy</p>
+                        <p class="email">dummy</p>
+                        <p class="telp">dummy</p>
+                        <p class="address">dummy</p>
+                    </div>
+                    <button>Contact Info</button>
                 </div>
-                <button>Contact Info</button>
-            </div>
-
-            <div class="card">
-                <span class="fa fa-star"></span>
-                <img src="images/dummy.jpg" alt="dummy image">
-                <div class="text">
-                    <h2 class="business-name">Meet Meat</h2>
-                    <h4 class="tagline">"Everything about Meat"</h4>
-                    <p class="category">meetmeat@gmail.com</p>
-                    <p class="price-range">Daging Supplier</p>
-                    <p class="MoQ"></p>
-                    <p class="product"></p>
-                    <p class="email"></p>
-                    <p class="telp"></p>
-                    <p class="address"></p>
+    
+                <div class="card">
+                    <span class="fa fa-star"></span>
+                    <img src="images/dummy.jpg" alt="dummy image">
+                    <div class="text">
+                        <h2 class="business-name">Meet Meat</h2>
+                        <h4 class="tagline">"Everything about Meat"</h4>
+                        <p class="category">meetmeat@gmail.com</p>
+                        <p class="price-range">Daging Supplier</p>
+                        <p class="MoQ"></p>
+                        <p class="product"></p>
+                        <p class="email"></p>
+                        <p class="telp"></p>
+                        <p class="address"></p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <span class="fa fa-star"></span>
-                <img src="images/dummy.jpg" alt="dummy image">
-                <div class="text">
-                    <h2 class="business-name">Meet Meat</h2>
-                    <h4 class="tagline">"Everything about Meat"</h4>
-                    <p class="category">meetmeat@gmail.com</p>
-                    <p class="price-range">Daging Supplier</p>
-                    <p class="MoQ"></p>
-                    <p class="product"></p>
-                    <p class="email"></p>
-                    <p class="telp"></p>
-                    <p class="address"></p>
+    
+                <div class="card">
+                    <span class="fa fa-star"></span>
+                    <img src="images/dummy.jpg" alt="dummy image">
+                    <div class="text">
+                        <h2 class="business-name">Meet Meat</h2>
+                        <h4 class="tagline">"Everything about Meat"</h4>
+                        <p class="category">meetmeat@gmail.com</p>
+                        <p class="price-range">Daging Supplier</p>
+                        <p class="MoQ"></p>
+                        <p class="product"></p>
+                        <p class="email"></p>
+                        <p class="telp"></p>
+                        <p class="address"></p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <span class="fa fa-star"></span>
-                <img src="images/dummy.jpg" alt="dummy image">
-                <div class="text">
-                    <h2 class="business-name">Meet Meat</h2>
-                    <h4 class="tagline">"Everything about Meat"</h4>
-                    <p class="category">meetmeat@gmail.com</p>
-                    <p class="price-range">Daging Supplier</p>
-                    <p class="MoQ"></p>
-                    <p class="product"></p>
-                    <p class="email"></p>
-                    <p class="telp"></p>
-                    <p class="address"></p>
+    
+                <div class="card">
+                    <span class="fa fa-star"></span>
+                    <img src="images/dummy.jpg" alt="dummy image">
+                    <div class="text">
+                        <h2 class="business-name">Meet Meat</h2>
+                        <h4 class="tagline">"Everything about Meat"</h4>
+                        <p class="category">meetmeat@gmail.com</p>
+                        <p class="price-range">Daging Supplier</p>
+                        <p class="MoQ"></p>
+                        <p class="product"></p>
+                        <p class="email"></p>
+                        <p class="telp"></p>
+                        <p class="address"></p>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
 
     </div>
     
