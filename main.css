@@ -1,0 +1,222 @@
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-size: 48px;
+    color: #F9FAF8;
+}
+
+h2 {
+    font-size: 36px;
+    color: #1F2937;
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    border-radius: 6px;
+    background-color: #3882F6;
+    font-weight: bold;
+    color: #E5E7EB;
+    border: none;
+    padding: 7px 25px;
+}
+
+/* Header */
+
+#navbar {
+    background-color: #1F2937;
+    padding: 15px 16% 15px 16.3%;
+    display: block;
+}
+
+#navbar span {
+    color: #F9FAF8;
+    font-size: 18px;
+    font-weight: bolder;
+    float: left;
+}
+
+#navbar .links {
+    display: flex;
+    gap: 1.5em;
+    justify-content: flex-end;
+}
+
+#navbar .links > * {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#navbar .links a:link, #navbar .links a:visited {
+    color: #F9FAF8;
+}
+
+#navbar .links a:hover {
+    color: #babbb9;
+}
+
+/* Section 1 */
+
+#s1 {
+    background-color: #1f2937;
+    padding: 20px;
+    height: 400px;
+
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+#s1 p {
+    font-size: 18px;
+    color: #E5E7EB;
+}
+
+#s1 > * {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 35%;
+    margin: 5% 0;
+}
+
+#s1 .text button {
+    /* It adds margin to 10% for some reason instead of keeping it at 5% */
+    margin-top: 0;
+}
+
+#s1 .text > * {
+    margin: 16px 5px;
+}
+
+#s1 .img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#s1 .img > * {
+    width: 100%;
+    height: 88%;
+}
+
+/* Section 2 */
+
+#s2 {
+    background-color: white;
+    padding: 20px;
+    height: 400px;
+}
+
+#s2 .img {
+    margin: 40px 25%;
+    padding: 0;
+
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+}
+
+#s2 .img > li {
+    /*border: 2px dotted yellowgreen;*/
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#s2 .img > li > img {
+    border: 4px solid #3882F6;
+    border-radius: 10px;
+    object-fit: cover;
+    width: 125px;
+    height: 125px;
+    flex-shrink: 1;
+}
+
+#s2 .img > li > span {
+    width: 95%;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* Section 3 */
+
+#s3 {
+    background-color: #E5E7EB;
+    padding: 20px;
+    height: 400px;
+}
+
+#s3 p {
+    font-size: 32px;
+    font-weight: lighter;
+    font-style: italic;
+    color: #1F2937;
+    margin: 7.5% 22% 2% 22.5%;
+}
+
+#s3 span {
+    display: block;
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: right;
+    margin-right: 22.5%;
+}
+
+/* Section 4 */
+
+#s4 {
+    background-color: white;
+    padding: 20px;
+    height: 400px;
+}
+
+#s4 .ad {
+    background-color: #3882F6;
+    margin: 10% 15%;
+    border-radius: 10px;
+    padding: 40px 50px;
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+#s4 .text {
+    color: #E5E7EB;
+    margin: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+#s4 .text > * {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#s4 .button {
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#s4 button {
+    border: 2px solid white;
+}
+
+/* Footer */
+
+footer {
+    background-color: #1F2937;
+    padding: 25px;
+    color: #E5E7EB;
+    text-align: center;
+}

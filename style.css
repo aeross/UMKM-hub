@@ -18,6 +18,14 @@
     grid-template-columns: 1fr 4fr;
 }
 
+body {
+    background-image: var(--gradient);
+}
+
+h1, h2, h3, h4, h5, h6, p, a, label {
+    color: var(--tertiary);
+}
+
 /* sidebar */
 
 ul {
@@ -47,12 +55,25 @@ ul {
     grid-template-columns: 1fr 4fr;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 
 /* form */
 
 form {
-    /* display: none; */
-    
+    padding: 30px;
+}
+
+form > section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+form > section > input:nth-last-child(-n + 6) {
+    grid-column: span 3;
 }
 
 input {
@@ -60,16 +81,12 @@ input {
     height: 40px;
 }
 
-body {
-    background-image: var(--gradient);
-}
-
 /* main */
 
 .cards {
     margin: 30px 40px;
-    display: none;
-    /* display: grid; */
+    /* display: none; */
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
