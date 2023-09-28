@@ -1,9 +1,18 @@
-:root {
-    /* variables go here */
+/* :root {
     --primary: rgb(252, 233, 135);
     --secondary: rgb(235, 99, 26);
     --tertiary: rgb(125, 0, 0);
     --dark-bg: rgb(241, 241, 241);
+    --light-bg: white;
+} */
+
+
+:root {
+    /* variables go here */
+    --primary: #7286D3;
+    --secondary: rgb(235, 99, 26);
+    --tertiary: rgb(125, 0, 0);
+    --dark-bg: #8EA7E9;
     --light-bg: white;
 }
 
@@ -29,28 +38,28 @@ ul {
 .sidebar {
     background-color: var(--primary);
     font-weight: bold;
-    padding: 15px;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     /* sticks this sidebar in place when scrolling */
     position: sticky;
     top: 0;
 }
 
-.sidebar span.fa {
-    margin-left: 8px;
-    margin-right: 8px;
+.sidebar h2 {
+    border-bottom: 3px dotted black;
+    padding-bottom: 25px;
 }
 
-.sidebar ul a {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+.sidebar ul, .sidebar h2 {
+    padding-top: 25px;
+    padding-left: 20px;
 }
 
-a {
+li {
     text-decoration: none;
+    padding-bottom: 10px;
 }
 
 /* header */
@@ -59,23 +68,22 @@ header {
     padding: 15px 30px;
     background-color: var(--dark-bg);
     box-shadow: 2px 2px 4px -1px var(--dark-bg);
-}
-
-header ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-header li {
+
+
+header a {
     font-weight: bolder;
 }
 
-header li:hover {
+header a:hover {
     color: var(--secondary);
     cursor: pointer;
 }
 
-header li:active {
+header a:active {
     color: var(--tertiary);
 }
 
@@ -87,7 +95,7 @@ form {
 
 form > section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr 1.5fr;
     gap: 20px;
 }
 
@@ -98,11 +106,16 @@ form > section > input:nth-last-child(-n + 6) {
 form > section > input {
     border-radius: 15px;
     height: 30px;
+    padding: 0px 10px;
 }
 
 form > section > label {
     display: flex;
     align-items: center;
+}
+
+form h2 {
+padding-bottom: 20px;
 }
 
 /* main */
