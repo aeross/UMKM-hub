@@ -25,12 +25,13 @@ class Database {
         throw new Error(`Error: id=${id} doesn't exist`);
     }
 
-    /* adds a new supplier to DATA. */
+    /* adds a new supplier to DATA. Returns that supplier's new id. */
     add(name, tagline, category, priceRange, MoQ, product, email, telp, address) {
         this.#id++;
         this.#DATA.push({
             id: this.#id, name, tagline, category, priceRange, MoQ, product, email, telp, address 
         });
+        return this.#id;
     }
 
     /* deletes the supplier based on id from DATA. */
@@ -91,9 +92,11 @@ class Favourites {
  */
 
 const cardsContainer = document.querySelector(".cards");
-const contactInfoButtons = document.querySelectorAll(".card button");
+const contactInfoButtons = document.querySelectorAll(".card button.contacts");
+const saveButtons = document.querySelectorAll(".card button.save");
 const database = new Database();
 const favourites = new Favourites();
+
 
 function addData(name, tagline, category, priceRange, MoQ, product, email, telp, address) {
     const card = document.createElement("div");
@@ -101,8 +104,7 @@ function addData(name, tagline, category, priceRange, MoQ, product, email, telp,
 
     // logo
     card.innerHTML += 
-    `<span class="fa fa-star"></span>
-    <img src="images/dummy.jpg" alt="dummy image">
+    `<img src="images/dummy.jpg" alt="dummy image">
     <div class="text">
         <h2 class="business-name">${name}</h2>
         <h4 class="tagline">"${tagline}"</h4>
@@ -110,20 +112,23 @@ function addData(name, tagline, category, priceRange, MoQ, product, email, telp,
         <p class="price-range">Price-range: <span>${priceRange}</span></p>
         <p class="MoQ">Minimal order quantity: <span>${MoQ}</span></p>
         <p class="product">Product: <span>${product}</span></p>
-        <p class="email hidden" >Email: <span>${email}</span></p>
-        <p class="telp hidden" >Telp: <span>${telp}</span></p>
-        <p class="address hidden" >Address: <span>${address}</span></p>
+        <p class="email hidden" style = "display: none;">Email: <span>${email}</span></p>
+        <p class="telp hidden" style = "display: none;">Telp: <span>${telp}</span></p>
+        <p class="address hidden" style = "display: none;">Address: <span>${address}</span></p>
     </div>
-    <button>Contact Info</button>`;
+    <button class="contacts">Contact Info</button>
+    <button class="save">Save to Favourites</button>`;
 
-    database.add(name, tagline, category, priceRange, MoQ, product, email, telp, address);
+    const id = database.add(name, tagline, category, priceRange, MoQ, product, email, telp, address);
+    card.setAttribute("id", id);
     cardsContainer.appendChild(card);
 }
+
 
 function contactInfoOnClick() {
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => {
-        const contactInfo = card.querySelector("button");
+        const contactInfo = card.querySelector("button.contacts");
         const hiddenTexts = card.querySelectorAll("p.hidden");
 
         contactInfo.addEventListener("click", () => {
@@ -138,5 +143,27 @@ function contactInfoOnClick() {
     });
 }
 
+
+function saveOnClick() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        const id = Number(card.id);
+        const save = card.querySelector("button.save");
+        save.addEventListener("click", () => {
+            try {
+                // id exists in favourites
+                favourites.getSupplierById(id);
+            } catch (e) {
+                // id doesn't exist in favourites
+                favourites.add(database, Number(card.id));
+            }
+        })
+    });
+}
+
+
 addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
+addData("b", "b", "b", "b", "b", "b", "b", "b", "b");
+addData("c", "c", "c", "c", "c", "c", "c", "c", "c");
 contactInfoOnClick();
+saveOnClick();
