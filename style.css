@@ -143,10 +143,6 @@ img {
     border-radius: 28px 28px 0px 0px;
 }
 
-.hidden {
-    display: none;  /* will turn on or off whenever the button is pressed */
-}
-
 .text, button {
     margin: 20px;
 }

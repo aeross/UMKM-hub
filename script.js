@@ -26,10 +26,10 @@ class Database {
     }
 
     /* adds a new supplier to DATA. */
-    add(name, address, email, telp, contactName, tagline, desc, MoQ, priceRange, category) {
+    add(name, tagline, category, priceRange, MoQ, product, email, telp, address) {
         this.#id++;
         this.#DATA.push({
-            id: this.#id, name, address, email, telp, contactName, tagline, desc, MoQ, priceRange, category 
+            id: this.#id, name, tagline, category, priceRange, MoQ, product, email, telp, address 
         });
     }
 
@@ -83,3 +83,50 @@ class Favourites {
         this.#FAVES.splice(indexToRemove, 1);
     }
 }
+
+
+/*  -----------------------------------------------------------------------------------------------
+ *  ------------------------------------------- DOM -----------------------------------------------
+ *  -----------------------------------------------------------------------------------------------
+ */
+
+const cards = document.querySelectorAll(".card");
+const contactInfoButtons = document.querySelectorAll(".card button");
+const database = new Database();
+const favourites = new Favourites();
+
+function addData(name, tagline, category, priceRange, MoQ, product, email, telp, address) {
+    cards.forEach(card => {
+        let HTMLText = card.querySelector(".text");
+        HTMLText.innerHTML = 
+        `<h2 class="business-name">${name}</h2>
+        <h4 class="tagline">"${tagline}"</h4>
+        <p class="category">Category: <span>${category}</span></p>
+        <p class="price-range">Price-range: <span>${priceRange}</span></p>
+        <p class="MoQ">Minimal order quantity: <span>${MoQ}</span></p>
+        <p class="product">Product: <span>${product}</span></p>
+        <p class="email hidden">Email: <span>${email}</span></p>
+        <p class="telp hidden">Telp: <span>${telp}</span></p>
+        <p class="address hidden">Address: <span>${address}</span></p>`;
+        database.add(name, tagline, category, priceRange, MoQ, product, email, telp, address);
+    });
+}
+
+function contactInfoOnClick() {
+    cards.forEach(card => {
+        const contactInfo = card.querySelector("button");
+        const hiddenTexts = card.querySelectorAll("p.hidden");
+
+        contactInfo.addEventListener("click", () => {
+            hiddenTexts.forEach(hiddenText => {
+                if (hiddenText.style.display === "none") {
+                    hiddenText.style.display = "";
+                } else {
+                    hiddenText.style.display = "none";
+                }
+            })
+        });
+    });
+}
+
+contactInfoOnClick();
