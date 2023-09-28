@@ -34,6 +34,10 @@ button {
     padding: 7px 25px;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 /* Header */
 
 #navbar {
