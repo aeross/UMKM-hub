@@ -126,13 +126,13 @@ function addData(name, tagline, category, priceRange, MoQ, product, email, telp,
 
     // logo
     card.innerHTML += 
-    `<img src="images/dummy.jpg" alt="dummy image">
+    `<img src="images/${category}.jpg" alt="${category} image">
     <div class="text">
         <h2 class="business-name">${name}</h2>
         <h4 class="tagline">"${tagline}"</h4>
         <p class="category">Category: <span>${category}</span></p>
-        <p class="price-range">Price-range: <span>${priceRange}</span></p>
-        <p class="MoQ">Minimal order quantity: <span>${MoQ}</span></p>
+        <p class="price-range">Price range: <span>${priceRange}</span></p>
+        <p class="MoQ">Min order qty: <span>${MoQ}</span></p>
         <p class="product">Product: <span>${product}</span></p>
         <p class="email hidden" style = "display: none;">Email: <span>${email}</span></p>
         <p class="telp hidden" style = "display: none;">Telp: <span>${telp}</span></p>
@@ -233,25 +233,25 @@ function submitOnClick() {
 
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
-        const contactName = document.getElementById("contactName").value;
         const telphone = document.getElementById("telphone").value;
         const MoQ = document.getElementById("MoQ").value;
+        const category = document.getElementById("category").value;
         const priceRange = document.getElementById("priceRange").value;
         const address = document.getElementById("address").value;
         const desc = document.getElementById("desc").value;
         const tagline = document.getElementById("tagline").value;
 
-        addData(name, tagline, "placeholder", priceRange, MoQ, "placeholder", email, telphone, address);
+        addData(name, tagline, category, priceRange, MoQ, desc, email, telphone, address);
         contactInfoOnClick();
         saveToFavOnClick();
     })
 }
 
-addData("Meet Meat", "Everything about Meat", "Pangan", "10,000-15,000", 
-    1, "wtf is this", "meatmeet@mail.com", "0869-6969-6969", "121 Leicester St, Melbourne VIC");
-addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
-addData("b", "b", "b", "b", "b", "b", "b", "b", "b");
-addData("c", "c", "c", "c", "c", "c", "c", "c", "c");
+// addData("Meet Meat", "Everything about Meat", "Pangan", "10,000-15,000", 
+//     1, "wtf is this", "meatmeet@mail.com", "0869-6969-6969", "121 Leicester St, Melbourne VIC");
+// addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
+// addData("b", "b", "b", "b", "b", "b", "b", "b", "b");
+// addData("c", "c", "c", "c", "c", "c", "c", "c", "c");
 contactInfoOnClick();
 saveToFavOnClick();
 // savedListOnClick();
