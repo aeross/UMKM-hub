@@ -226,6 +226,27 @@ function deleteListOnClick() {
     });
 }
 
+function submitOnClick() {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const contactName = document.getElementById("contactName").value;
+        const telphone = document.getElementById("telphone").value;
+        const MoQ = document.getElementById("MoQ").value;
+        const priceRange = document.getElementById("priceRange").value;
+        const address = document.getElementById("address").value;
+        const desc = document.getElementById("desc").value;
+        const tagline = document.getElementById("tagline").value;
+
+        addData(name, tagline, "placeholder", priceRange, MoQ, "placeholder", email, telphone, address);
+        contactInfoOnClick();
+        saveToFavOnClick();
+    })
+}
+
 addData("Meet Meat", "Everything about Meat", "Pangan", "10,000-15,000", 
     1, "wtf is this", "meatmeet@mail.com", "0869-6969-6969", "121 Leicester St, Melbourne VIC");
 addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
@@ -234,3 +255,4 @@ addData("c", "c", "c", "c", "c", "c", "c", "c", "c");
 contactInfoOnClick();
 saveToFavOnClick();
 // savedListOnClick();
+submitOnClick();
