@@ -10,8 +10,8 @@
 :root {
     /* variables go here */
     --primary: #7286D3;
-    --secondary: rgb(235, 99, 26);
-    --tertiary: rgb(125, 0, 0);
+    --secondary: #586ab1;
+    --tertiary: #3f4c81;
     --dark-bg: #8EA7E9;
     --light-bg: white;
 }
@@ -26,13 +26,16 @@
 .container {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 3.5fr;
 }
 
 /* sidebar */
 
 ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .sidebar {
@@ -53,13 +56,26 @@ ul {
 }
 
 .sidebar ul, .sidebar h2 {
-    padding-top: 25px;
-    padding-left: 20px;
+    padding: 20px;
 }
 
 li {
-    text-decoration: none;
-    padding-bottom: 10px;
+    padding: 6px 10px;
+    border: 2px solid var(--tertiary);
+    border-radius: 30px;
+    background-color: var(--secondary);
+    text-align: center;
+}
+
+li * {
+    text-align: left;
+    font-weight: normal;
+    font-size: 12px;
+    margin: 3px;
+}
+
+li button {
+    margin: 3px;
 }
 
 /* header */

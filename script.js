@@ -16,7 +16,6 @@ class Database {
     }
 
     getIndexById(id) {
-        console.log(this.#DATA);
         for (let i = 0; i < this.#DATA.length; i++) {
             if (this.#DATA[i].id === id) {
                 return i;
@@ -49,7 +48,7 @@ class Favourites {
         return this.#FAVES;
     }
 
-    getSupplierById(id) {
+    getSupplierBySupplierId(id) {
         for (let i = 0; i < this.#FAVES.length; i++) {
             if (this.#FAVES[i].id === id) {
                 return this.#FAVES[i];
@@ -58,9 +57,28 @@ class Favourites {
         throw new Error(`Error: id=${id} doesn't exist`);
     }
 
-    getIndexById(id) {
+    getIndexBySupplierId(id) {
         for (let i = 0; i < this.#FAVES.length; i++) {
             if (this.#FAVES[i].id === id) {
+                return i;
+            }
+        }
+        throw new Error(`Error: id=${id} doesn't exist`);
+    }
+
+    getSupplierByFavId(id) {
+        for (let i = 0; i < this.#FAVES.length; i++) {
+            if (this.#FAVES[i].favId === id) {
+                return this.#FAVES[i];
+            }
+        }
+        throw new Error(`Error: id=${id} doesn't exist`);
+    }
+
+    getIndexByFavId(id) {
+        for (let i = 0; i < this.#FAVES.length; i++) {
+            // console.log(this.#FAVES[i].favId);
+            if (this.#FAVES[i].favId === id) {
                 return i;
             }
         }
@@ -71,16 +89,19 @@ class Favourites {
      * parameters:
      * data: Database object
      * dataId: supplier id from data to be added to FAVES
+     * Returns that favourite supplier's new id.
      */ 
     add(data, dataId) {
         let supplier = data.getSupplierById(dataId);
         this.#id++;
+        supplier.favId = this.#id;
         this.#FAVES.push(supplier);
+        return this.#id;
     }
 
     /* deletes the supplier based on id from FAVES. */
-    delete(id) {
-        let indexToRemove = this.getIndexById(id);
+    delete(favId) {
+        let indexToRemove = this.getIndexByFavId(favId);
         this.#FAVES.splice(indexToRemove, 1);
     }
 }
@@ -94,6 +115,7 @@ class Favourites {
 const cardsContainer = document.querySelector(".cards");
 const contactInfoButtons = document.querySelectorAll(".card button.contacts");
 const saveButtons = document.querySelectorAll(".card button.save");
+const favouritesList = document.querySelector(".sidebar ul");
 const database = new Database();
 const favourites = new Favourites();
 
@@ -124,6 +146,19 @@ function addData(name, tagline, category, priceRange, MoQ, product, email, telp,
     cardsContainer.appendChild(card);
 }
 
+function addFavourites(favId) {
+    // const favouritesList = document.querySelector(".sidebar ul");
+    const supplier = favourites.getSupplierByFavId(favId);
+    favouritesList.innerHTML += 
+    `<li id="${favId}">${supplier.name}
+        <div style="display: none;">
+            <p>email: ${supplier.email}</p>
+            <p>phone: ${supplier.telp}</p>
+        <button>delete</button>
+        </div>
+    </li>`;
+}
+
 
 function contactInfoOnClick() {
     const cards = document.querySelectorAll(".card");
@@ -144,7 +179,7 @@ function contactInfoOnClick() {
 }
 
 
-function saveOnClick() {
+function saveToFavOnClick() {
     const cards = document.querySelectorAll(".card");
     cards.forEach(card => {
         const id = Number(card.id);
@@ -152,18 +187,50 @@ function saveOnClick() {
         save.addEventListener("click", () => {
             try {
                 // id exists in favourites
-                favourites.getSupplierById(id);
+                favourites.getSupplierBySupplierId(id);
             } catch (e) {
                 // id doesn't exist in favourites
-                favourites.add(database, Number(card.id));
+                const favId = favourites.add(database, id);
+                addFavourites(favId);
+                savedListOnClick();
+                deleteListOnClick();
+            }
+            // console.log(favourites.getFavourites);
+        })
+    });
+}
+
+function savedListOnClick() {
+    const list = favouritesList.querySelectorAll("li");
+    list.forEach(savedSupplier => {
+        savedSupplier.addEventListener("click", () => {
+            // let supplier = database.getSupplierById(savedSupplier.id);
+            let hidden = savedSupplier.querySelector("div");
+            if (hidden.style.display === "none") {
+                hidden.style.display = "";
+            } else {
+                hidden.style.display = "none";
             }
         })
     });
 }
 
+function deleteListOnClick() {
+    const list = favouritesList.querySelectorAll("li");
+    list.forEach(favSupplier => {
+        let button = favSupplier.querySelector("button");
+        button.addEventListener("click", () => {
+            favourites.delete(Number(favSupplier.id));
+            favSupplier.remove();
+        });
+    });
+}
 
+addData("Meet Meat", "Everything about Meat", "Pangan", "10,000-15,000", 
+    1, "wtf is this", "meatmeet@mail.com", "0869-6969-6969", "121 Leicester St, Melbourne VIC");
 addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
 addData("b", "b", "b", "b", "b", "b", "b", "b", "b");
 addData("c", "c", "c", "c", "c", "c", "c", "c", "c");
 contactInfoOnClick();
-saveOnClick();
+saveToFavOnClick();
+// savedListOnClick();
