@@ -97,25 +97,24 @@ const favourites = new Favourites();
 
 function addData(name, tagline, category, priceRange, MoQ, product, email, telp, address) {
     const card = document.createElement("div");
+    card.setAttribute("class", "card");
 
     // logo
-    card.innerHTML += `<span class="fa fa-star"></span>`;
-    // image
-    card.innerHTML += `<img src="images/dummy.jpg" alt="dummy image"></img>`;
-    // text
-    const HTMLText = document.createElement("div");
-    HTMLText.setAttribute("class", "text");
-    card.appendChild(HTMLText);
-    HTMLText.innerHTML += 
-    `<h2 class="business-name">${name}</h2>
-    <h4 class="tagline">"${tagline}"</h4>
-    <p class="category">Category: <span>${category}</span></p>
-    <p class="price-range">Price-range: <span>${priceRange}</span></p>
-    <p class="MoQ">Minimal order quantity: <span>${MoQ}</span></p>
-    <p class="product">Product: <span>${product}</span></p>
-    <p class="email hidden">Email: <span>${email}</span></p>
-    <p class="telp hidden">Telp: <span>${telp}</span></p>
-    <p class="address hidden">Address: <span>${address}</span></p>`;
+    card.innerHTML += 
+    `<span class="fa fa-star"></span>
+    <img src="images/dummy.jpg" alt="dummy image">
+    <div class="text">
+        <h2 class="business-name">${name}</h2>
+        <h4 class="tagline">"${tagline}"</h4>
+        <p class="category">Category: <span>${category}</span></p>
+        <p class="price-range">Price-range: <span>${priceRange}</span></p>
+        <p class="MoQ">Minimal order quantity: <span>${MoQ}</span></p>
+        <p class="product">Product: <span>${product}</span></p>
+        <p class="email hidden" >Email: <span>${email}</span></p>
+        <p class="telp hidden" >Telp: <span>${telp}</span></p>
+        <p class="address hidden" >Address: <span>${address}</span></p>
+    </div>
+    <button>Contact Info</button>`;
 
     database.add(name, tagline, category, priceRange, MoQ, product, email, telp, address);
     cardsContainer.appendChild(card);
