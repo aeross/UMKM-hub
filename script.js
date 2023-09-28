@@ -118,6 +118,7 @@ const saveButtons = document.querySelectorAll(".card button.save");
 const favouritesList = document.querySelector(".sidebar ul");
 const database = new Database();
 const favourites = new Favourites();
+let submits = 0;
 
 
 function addData(name, tagline, category, priceRange, MoQ, product, email, telp, address) {
@@ -144,6 +145,7 @@ function addData(name, tagline, category, priceRange, MoQ, product, email, telp,
     const id = database.add(name, tagline, category, priceRange, MoQ, product, email, telp, address);
     card.setAttribute("id", id);
     cardsContainer.appendChild(card);
+    return card;
 }
 
 function addFavourites(favId) {
@@ -160,21 +162,19 @@ function addFavourites(favId) {
 }
 
 
-function contactInfoOnClick() {
-    const cards = document.querySelectorAll(".card");
-    cards.forEach(card => {
-        const contactInfo = card.querySelector("button.contacts");
-        const hiddenTexts = card.querySelectorAll("p.hidden");
+function contactInfoOnClick(card) {
+    const contactInfo = card.querySelector("button.contacts");
+    const hiddenTexts = card.querySelectorAll("p.hidden");
 
-        contactInfo.addEventListener("click", () => {
-            hiddenTexts.forEach(hiddenText => {
-                if (hiddenText.style.display === "none") {
-                    hiddenText.style.display = "";
-                } else {
-                    hiddenText.style.display = "none";
-                }
-            })
-        });
+    contactInfo.addEventListener("click", () => {
+        // console.log(contactInfo.innerHTML);
+        hiddenTexts.forEach(hiddenText => {
+            if (hiddenText.style.display === "none") {
+                hiddenText.style.display = "";
+            } else {
+                hiddenText.style.display = "none";
+            }
+        })
     });
 }
 
@@ -185,6 +185,7 @@ function saveToFavOnClick() {
         const id = Number(card.id);
         const save = card.querySelector("button.save");
         save.addEventListener("click", () => {
+            // console.log(save.innerHTML);
             try {
                 // id exists in favourites
                 favourites.getSupplierBySupplierId(id);
@@ -204,7 +205,7 @@ function savedListOnClick() {
     const list = favouritesList.querySelectorAll("li");
     list.forEach(savedSupplier => {
         savedSupplier.addEventListener("click", () => {
-            // let supplier = database.getSupplierById(savedSupplier.id);
+            // console.log("show");
             let hidden = savedSupplier.querySelector("div");
             if (hidden.style.display === "none") {
                 hidden.style.display = "";
@@ -218,6 +219,7 @@ function savedListOnClick() {
 function deleteListOnClick() {
     const list = favouritesList.querySelectorAll("li");
     list.forEach(favSupplier => {
+        // console.log("delete");
         let button = favSupplier.querySelector("button");
         button.addEventListener("click", () => {
             favourites.delete(Number(favSupplier.id));
@@ -228,7 +230,7 @@ function deleteListOnClick() {
 
 function submitOnClick() {
     const form = document.querySelector("form");
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
 
         const name = document.getElementById("name").value;
@@ -241,8 +243,8 @@ function submitOnClick() {
         const desc = document.getElementById("desc").value;
         const tagline = document.getElementById("tagline").value;
 
-        addData(name, tagline, category, priceRange, MoQ, desc, email, telphone, address);
-        contactInfoOnClick();
+        const card = addData(name, tagline, category, priceRange, MoQ, desc, email, telphone, address);
+        contactInfoOnClick(card);
         saveToFavOnClick();
     })
 }
@@ -252,7 +254,8 @@ function submitOnClick() {
 // addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
 // addData("b", "b", "b", "b", "b", "b", "b", "b", "b");
 // addData("c", "c", "c", "c", "c", "c", "c", "c", "c");
-contactInfoOnClick();
-saveToFavOnClick();
-// savedListOnClick();
 submitOnClick();
+// contactInfoOnClick();
+saveToFavOnClick();
+savedListOnClick();
+deleteListOnClick();
