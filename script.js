@@ -90,29 +90,39 @@ class Favourites {
  *  -----------------------------------------------------------------------------------------------
  */
 
-const cards = document.querySelectorAll(".card");
+const cardsContainer = document.querySelector(".cards");
 const contactInfoButtons = document.querySelectorAll(".card button");
 const database = new Database();
 const favourites = new Favourites();
 
 function addData(name, tagline, category, priceRange, MoQ, product, email, telp, address) {
-    cards.forEach(card => {
-        let HTMLText = card.querySelector(".text");
-        HTMLText.innerHTML = 
-        `<h2 class="business-name">${name}</h2>
-        <h4 class="tagline">"${tagline}"</h4>
-        <p class="category">Category: <span>${category}</span></p>
-        <p class="price-range">Price-range: <span>${priceRange}</span></p>
-        <p class="MoQ">Minimal order quantity: <span>${MoQ}</span></p>
-        <p class="product">Product: <span>${product}</span></p>
-        <p class="email hidden">Email: <span>${email}</span></p>
-        <p class="telp hidden">Telp: <span>${telp}</span></p>
-        <p class="address hidden">Address: <span>${address}</span></p>`;
-        database.add(name, tagline, category, priceRange, MoQ, product, email, telp, address);
-    });
+    const card = document.createElement("div");
+
+    // logo
+    card.innerHTML += `<span class="fa fa-star"></span>`;
+    // image
+    card.innerHTML += `<img src="images/dummy.jpg" alt="dummy image"></img>`;
+    // text
+    const HTMLText = document.createElement("div");
+    HTMLText.setAttribute("class", "text");
+    card.appendChild(HTMLText);
+    HTMLText.innerHTML += 
+    `<h2 class="business-name">${name}</h2>
+    <h4 class="tagline">"${tagline}"</h4>
+    <p class="category">Category: <span>${category}</span></p>
+    <p class="price-range">Price-range: <span>${priceRange}</span></p>
+    <p class="MoQ">Minimal order quantity: <span>${MoQ}</span></p>
+    <p class="product">Product: <span>${product}</span></p>
+    <p class="email hidden">Email: <span>${email}</span></p>
+    <p class="telp hidden">Telp: <span>${telp}</span></p>
+    <p class="address hidden">Address: <span>${address}</span></p>`;
+
+    database.add(name, tagline, category, priceRange, MoQ, product, email, telp, address);
+    cardsContainer.appendChild(card);
 }
 
 function contactInfoOnClick() {
+    const cards = document.querySelectorAll(".card");
     cards.forEach(card => {
         const contactInfo = card.querySelector("button");
         const hiddenTexts = card.querySelectorAll("p.hidden");
@@ -129,4 +139,5 @@ function contactInfoOnClick() {
     });
 }
 
+addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
 contactInfoOnClick();
