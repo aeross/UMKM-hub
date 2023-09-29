@@ -136,6 +136,10 @@ form > section > input, form > section > select {
     padding: 0px 10px;
 }
 
+form > section > input {
+    border: 1px solid black;
+}
+
 form > section > label {
     display: flex;
     align-items: center;
