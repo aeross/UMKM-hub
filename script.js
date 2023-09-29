@@ -249,13 +249,13 @@ function submitOnClick() {
     })
 }
 
-// addData("Meet Meat", "Everything about Meat", "Pangan", "10,000-15,000", 
-//     1, "wtf is this", "meatmeet@mail.com", "0869-6969-6969", "121 Leicester St, Melbourne VIC");
+let firstData = addData("Meet Meat", "Everything about Meat", "Pangan", "10,000-15,000", 
+    1, "pangaaaaan", "meatmeet@mail.com", "0869-6969-6969", "10 Love St, Antartica");
 // addData("a", "a", "a", "a", "a", "a", "a", "a", "a");
 // addData("b", "b", "b", "b", "b", "b", "b", "b", "b");
 // addData("c", "c", "c", "c", "c", "c", "c", "c", "c");
 submitOnClick();
-// contactInfoOnClick();
+contactInfoOnClick(firstData);
 saveToFavOnClick();
 savedListOnClick();
 deleteListOnClick();
